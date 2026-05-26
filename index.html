@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Hangbeom Kim | Research Associate</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f4f8;
+      color: #1a1a2e;
+    }
+
+    /* NAV */
+    nav {
+      background: #1a3a5c;
+      padding: 16px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    }
+    nav .logo {
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 1.2rem;
+      letter-spacing: 1px;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
+    nav ul li a {
+      color: #a8c8e8;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav ul li a:hover { color: #ffffff; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a3a5c 0%, #2563a8 100%);
+      color: white;
+      padding: 100px 40px;
+      text-align: center;
+    }
+    .hero .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #a8c8e8;
+      margin: 0 auto 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      color: #1a3a5c;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .hero h2 {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #a8c8e8;
+      margin-bottom: 16px;
+    }
+    .hero p {
+      font-size: 1rem;
+      color: #d0e8f5;
+      max-width: 550px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      padding: 12px 28px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: #ffffff;
+      color: #1a3a5c;
+    }
+    .btn-primary:hover { background: #d0e8f5; }
+    .btn-outline {
+      background: transparent;
+      color: #ffffff;
+      border: 2px solid #ffffff;
+    }
+    .btn-outline:hover { background: rgba(255,255,255,0.1); }
+
+    /* SECTIONS */
+    section {
+      padding: 70px 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .section-title {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 3px solid #2563a8;
+      display: inline-block;
+    }
+    .section-subtitle {
+      color: #5a7a9a;
+      margin-bottom: 36px;
+      font-size: 0.95rem;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .skill-badge {
+      background: #1a3a5c;
+      color: #ffffff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+    .skill-badge:hover { background: #2563a8; }
+    .skill-badge i { font-size: 1rem; color: #a8c8e8; }
+
+    /* EXPERIENCE */
+    .timeline { position: relative; padding-left: 30px; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: #2563a8;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 36px;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -26px;
+      top: 6px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #2563a8;
+      border: 2px solid #ffffff;
+    }
+    .timeline-item h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #1a3a5c;
+    }
+    .timeline-item .company {
+      color: #2563a8;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin: 4px 0;
+    }
+    .timeline-item .period {
+      color: #8a9ab0;
+      font-size: 0.85rem;
+      margin-bottom: 8px;
+    }
+    .timeline-item p {
+      color: #4a5a6a;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+
+    /* PROJECTS */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 10px;
+      padding: 24px;
+      box-shadow: 0 4px 16px rgba(26,58,92,0.08);
+      border-top: 4px solid #2563a8;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(26,58,92,0.15);
+    }
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1a3a5c;
+      margin-bottom: 10px;
+    }
+    .project-card p {
+      font-size: 0.88rem;
+      color: #5a7a9a;
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .tag {
+      background: #e8f0f8;
+      color: #2563a8;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.78rem;
+      font-weight: 500;
+    }
+
+    /* CONTACT */
+    .contact-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #1a3a5c;
+      color: #ffffff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: background 0.3s;
+    }
+    .contact-link:hover { background: #2563a8; }
+    .contact-link i { font-size: 1.1rem; }
+
+    /* FOOTER */
+    footer {
+      background: #1a3a5c;
+      color: #a8c8e8;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.85rem;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      nav ul { gap: 14px; }
+      section { padding: 50px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">HB Kim</div>
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="avatar"><i class="fas fa-user"></i></div>
+  <h1>Hangbeom Kim</h1>
+  <h2>Research Associate</h2>
+  <p>Software developer specialising in machine vision and vision-language models for industrial automation.</p>
+  <div class="hero-buttons">
+    <a href="#projects" class="btn btn-primary">View Projects</a>
+    <a href="#contact" class="btn btn-outline">Contact Me</a>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-title">About Me</div>
+  <p class="section-subtitle">Who I am and what I do</p>
+  <p style="line-height:1.8; color:#4a5a6a;">
+    I am a Research Associate with a strong focus on computer vision and machine learning,
+    developing intelligent systems for industrial automation. My work bridges the gap between
+    cutting-edge vision-language models and real-world engineering applications,
+    delivering robust and scalable solutions.
+  </p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-title">Skills</div>
+  <p class="section-subtitle">Technologies & Expertise</p>
+  <div class="skills-grid">
+    <div class="skill-badge"><i class="fas fa-eye"></i> Computer Vision</div>
+    <div class="skill-badge"><i class="fas fa-image"></i> Image Processing</div>
+    <div class="skill-badge"><i class="fas fa-brain"></i> Machine Learning</div>
+    <div class="skill-badge"><i class="fab fa-python"></i> Python</div>
+    <div class="skill-badge"><i class="fas fa-comments"></i> Vision Language Model</div>
+    <div class="skill-badge"><i class="fas fa-industry"></i> Industrial Automation</div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-title">Experience</div>
+  <p class="section-subtitle">My professional journey</p>
+  <div class="timeline">
+    <div class="timeline-item">
+      <h3>Research Associate</h3>
+      <div class="company">Company / Institution Name</div>
+      <div class="period">2022 – Present</div>
+      <p>Research and development of computer vision systems and vision-language models for industrial automation applications.</p>
+    </div>
+    <!-- 경력 추가 시 아래 블록 복사 -->
+    <!--
+    <div class="timeline-item">
+      <h3>Position Title</h3>
+      <div class="company">Company Name</div>
+      <div class="period">Year – Year</div>
+      <p>Description of responsibilities and achievements.</p>
+    </div>
+    -->
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-title">Projects</div>
+  <p class="section-subtitle">Key work & research</p>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>🔍 Industrial Vision Inspection</h3>
+      <p>Automated defect detection system for manufacturing using deep learning-based image analysis.</p>
+      <div class="project-tags">
+        <span class="tag">Computer Vision</span>
+        <span class="tag">Python</span>
+        <span class="tag">Deep Learning</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <h3>🤖 Vision-Language Model App</h3>
+      <p>Applied VLM to interpret visual data in industrial settings with natural language queries.</p>
+      <div class="project-tags">
+        <span class="tag">VLM</span>
+        <span class="tag">Machine Learning</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+    <div class="project-card">
+      <h3>🖼️ Image Processing Pipeline</h3>
+      <p>Built a real-time image processing pipeline for quality control in automated production lines.</p>
+      <div class="project-tags">
+        <span class="tag">Image Processing</span>
+        <span class="tag">Automation</span>
+        <span class="tag">Python</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-title">Contact</div>
+  <p class="section-subtitle">Let's connect!</p>
+  <div class="contact-links">
+    <a href="mailto:your@email.com" class="contact-link">
+      <i class="fas fa-envelope"></i> Email
+    </a>
+    <a href="https://github.com/yourusername" target="_blank" class="contact-link">
+      <i class="fab fa-github"></i> GitHub
+    </a>
+    <a href="https://linkedin.com/in/yourprofile" target="_blank" class="contact-link">
+      <i class="fab fa-linkedin"></i> LinkedIn
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 Hangbeom Kim · Research Associate</p>
+</footer>
+
+</body>
+</html>
